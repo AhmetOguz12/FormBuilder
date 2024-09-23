@@ -12,6 +12,10 @@ export class ItemsComponent {
   availableElements = [
     { type: 'text', label: 'Text Input' },
     { type: 'checkbox', label: 'Checkbox' },
-    { type: 'radio', label: 'Radio Button' },
+    { type: 'selectItem', label: 'SelectItem' },
+    { type: 'image', label: 'Image' },
+    { type: 'date', label: 'Date' },
+    { type: 'number', label: 'Number' },
+    { type: 'radio', label: 'Radio Button' }, // Make sure both label and type are set
   ];
 }

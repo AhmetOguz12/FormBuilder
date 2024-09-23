@@ -1,5 +1,6 @@
 <div *ngIf="selectedElement$ | async as selectedElement">
     <h3>Edit {{ selectedElement.label }}</h3>
+    <h2>{{selectedElement.type}}</h2>
     <input [(ngModel)]="selectedElement.label" placeholder="Label" />
     <button (click)="updateElement()">Save</button>
 </div>

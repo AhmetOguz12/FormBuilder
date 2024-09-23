@@ -1,7 +1,5 @@
-<!-- Connect ItemsComponent to the passed CdkDropList -->
-<div cdkDropList [cdkDropListConnectedTo]="[connectedDropList]">
-    <div *ngFor="let element of availableElements" cdkDrag>
+<div cdkDropList [cdkDropListConnectedTo]="[connectedDropList]" [cdkDropListData]="availableElements">
+    <div *ngFor="let element of availableElements" cdkDrag [cdkDragData]="element">
         {{ element.label }}
-
     </div>
 </div>

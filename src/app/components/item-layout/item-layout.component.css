@@ -1,4 +1,4 @@
-[cdkDrag] {
+/* [cdkDrag] {
   border: 1px solid #ccc;
   margin: 5px 0;
   padding: 10px;
@@ -15,7 +15,7 @@
   background-color: #f0f0f0;
   border: dashed 1px #ccc;
   min-height: 40px;
-}
+} */
 
 .layout-container {
   border: 2px dashed #ccc;

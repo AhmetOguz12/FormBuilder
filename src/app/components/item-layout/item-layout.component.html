@@ -5,11 +5,11 @@
         Drag items here to build your form
     </div>
 
-    <!-- List the form elements -->
+    <!-- Render the form elements -->
     <div *ngFor="let element of formElements$ | async" cdkDrag class="item-element" (click)="editElement(element)">
-        {{element.type}}
-        {{ element.label }}
-
-
+        <strong>Label:</strong> {{ element.label }} <br />
+        <strong>Type:</strong> {{ element.type }}
+        <!-- Add a remove button -->
+        <button (click)="confirmRemoveItem(element, $event)">Remove</button>
     </div>
 </div>
