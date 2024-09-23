@@ -1,9 +1,5 @@
-<div *ngIf="selectedElement$ | async as element">
-    <form [formGroup]="editForm" (ngSubmit)="save()">
-        <label>Label</label>
-        <input formControlName="label" type="text">
-        <label *ngIf="element.type === 'text'">Placeholder</label>
-        <input formControlName="placeholder" *ngIf="element.type === 'text'" type="text">
-        <button type="submit">Save</button>
-    </form>
+<div *ngIf="selectedElement$ | async as selectedElement">
+    <h3>Edit {{ selectedElement.label }}</h3>
+    <input [(ngModel)]="selectedElement.label" placeholder="Label" />
+    <button (click)="updateElement()">Save</button>
 </div>

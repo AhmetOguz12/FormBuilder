@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormService } from 'src/app/form.service';
+import { Component, Input } from '@angular/core';
+import { CdkDropList } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-items',
@@ -7,10 +7,11 @@ import { FormService } from 'src/app/form.service';
   styleUrls: ['./items.component.css'],
 })
 export class ItemsComponent {
-  constructor(private formService: FormService) {}
+  @Input() connectedDropList!: CdkDropList;
 
-  addElement(type: string) {
-    const element = { type, label: `New ${type}` };
-    this.formService.addElement(element);
-  }
+  availableElements = [
+    { type: 'text', label: 'Text Input' },
+    { type: 'checkbox', label: 'Checkbox' },
+    { type: 'radio', label: 'Radio Button' },
+  ];
 }

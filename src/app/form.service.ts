@@ -1,45 +1,34 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-interface FormElement {
-  type: string;
-  label: string;
-  placeholder?: string;
-  value?: string;
-}
-
 @Injectable({
   providedIn: 'root',
 })
 export class FormService {
-  private elements = new BehaviorSubject<FormElement[]>([]);
-  elements$ = this.elements.asObservable();
+  private elementsSubject = new BehaviorSubject<any[]>([]);
+  elements$ = this.elementsSubject.asObservable();
 
-  private selectedElement = new BehaviorSubject<FormElement | null>(null);
-  selectedElement$ = this.selectedElement.asObservable();
+  private selectedElementSubject = new BehaviorSubject<any>(null);
+  selectedElement$ = this.selectedElementSubject.asObservable();
 
-  addElement(element: FormElement) {
-    const currentElements = this.elements.getValue();
-    this.elements.next([...currentElements, element]);
+  addElement(element: any) {
+    const currentElements = this.elementsSubject.getValue();
+    currentElements.push(element);
+    this.elementsSubject.next(currentElements);
   }
 
-  selectElement(element: FormElement) {
-    this.selectedElement.next(element);
+  selectElement(element: any) {
+    this.selectedElementSubject.next(element);
   }
 
-  updateElement(updatedElement: FormElement) {
-    const currentElements = this.elements
-      .getValue()
-      .map((el) =>
-        el === this.selectedElement.getValue() ? updatedElement : el
-      );
-    this.elements.next(currentElements);
-    this.selectedElement.next(updatedElement);
-  }
-  // Delete element by index
-  deleteElement(index: number) {
-    const currentElements = this.elements.getValue();
-    currentElements.splice(index, 1); // Remove item by index
-    this.elements.next(currentElements);
+  updateElement() {
+    const currentElements = this.elementsSubject.getValue();
+    const selectedElement = this.selectedElementSubject.getValue();
+    const index = currentElements.findIndex((el) => el === selectedElement);
+
+    if (index !== -1) {
+      currentElements[index] = { ...selectedElement };
+      this.elementsSubject.next(currentElements);
+    }
   }
 }

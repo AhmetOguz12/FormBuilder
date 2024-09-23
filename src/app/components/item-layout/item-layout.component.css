@@ -16,3 +16,23 @@
   border: dashed 1px #ccc;
   min-height: 40px;
 }
+
+.layout-container {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  min-height: 200px;
+  position: relative;
+}
+
+.empty-layout {
+  color: #999;
+  text-align: center;
+  font-size: 18px;
+}
+
+.item-element {
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  cursor: move;
+}

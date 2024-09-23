@@ -1,3 +1,7 @@
-<button (click)="addElement('text')">Add Text Input</button>
-<button (click)="addElement('checkbox')">Add Checkbox</button>
-<button (click)="addElement('radio')">Add Radio Button</button>
+<!-- Connect ItemsComponent to the passed CdkDropList -->
+<div cdkDropList [cdkDropListConnectedTo]="[connectedDropList]">
+    <div *ngFor="let element of availableElements" cdkDrag>
+        {{ element.label }}
+
+    </div>
+</div>

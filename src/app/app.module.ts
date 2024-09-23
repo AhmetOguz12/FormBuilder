@@ -8,7 +8,8 @@ import { AppComponent } from './app.component';
 import { ItemsComponent } from './components/items/items.component';
 import { ItemLayoutComponent } from './components/item-layout/item-layout.component';
 import { EditItemsComponent } from './components/edit-items/edit-items.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ItemsComponent,
     ItemLayoutComponent,
     EditItemsComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     DragDropModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

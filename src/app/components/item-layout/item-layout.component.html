@@ -1,12 +1,15 @@
-<app-items></app-items>
+<div class="layout-container" cdkDropList #layoutDropList="cdkDropList" [cdkDropListData]="formElements$ | async"
+    (cdkDropListDropped)="drop($event)">
+    <!-- Display a message if the layout is empty -->
+    <div *ngIf="(formElements$ | async)?.length === 0" class="empty-layout">
+        Drag items here to build your form
+    </div>
 
-<div cdkDropList (cdkDropListDropped)="drop($event)">
-    <div *ngFor="let element of formElements$ | async; let i = index" cdkDrag>
-        <div (click)="editElement(element)">
-            {{ element.label }} ({{ element.type }})
-        </div>
-        <button (click)="deleteElement(i)">Delete</button> <!-- Delete button -->
+    <!-- List the form elements -->
+    <div *ngFor="let element of formElements$ | async" cdkDrag class="item-element" (click)="editElement(element)">
+        {{element.type}}
+        {{ element.label }}
+
+
     </div>
 </div>
-
-<app-edit-items></app-edit-items>
