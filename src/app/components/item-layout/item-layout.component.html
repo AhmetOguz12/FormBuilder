@@ -1,0 +1,12 @@
+<app-items></app-items>
+
+<div cdkDropList (cdkDropListDropped)="drop($event)">
+    <div *ngFor="let element of formElements$ | async; let i = index" cdkDrag>
+        <div (click)="editElement(element)">
+            {{ element.label }} ({{ element.type }})
+        </div>
+        <button (click)="deleteElement(i)">Delete</button> <!-- Delete button -->
+    </div>
+</div>
+
+<app-edit-items></app-edit-items>
