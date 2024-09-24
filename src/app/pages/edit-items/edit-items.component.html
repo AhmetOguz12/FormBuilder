@@ -1,11 +1,17 @@
 <div *ngIf="selectedElement$ | async as selectedElement">
     <h3>Edit {{ selectedElement.label }}</h3>
 
-    <label>Label</label>
-    <input [(ngModel)]="selectedElement.label" placeholder="Enter new label" />
+    <div>
+        <label>Label:</label>
+        <input [(ngModel)]="selectedElement.label" placeholder="Label" />
+    </div>
 
-    <label>Value</label>
-    <input [(ngModel)]="selectedElement.value" placeholder="Enter new value" />
+    <div *ngIf="selectedElement.type === 'input'">
+        <label>Placeholder:</label>
+        <input [(ngModel)]="selectedElement.placeholder" placeholder="Placeholder" />
+    </div>
 
-    <button (click)="updateElement(selectedElement.label, selectedElement.value)">Update</button>
+    <!-- Add more editable properties depending on the component type -->
+
+    <button (click)="updateElement()">Save Changes</button>
 </div>

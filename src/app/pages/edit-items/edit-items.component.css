@@ -1,0 +1,20 @@
+.right-sidebar {
+  background-color: #f4f4f4;
+  padding: 15px;
+  border-left: 1px solid #ccc;
+}
+
+.right-sidebar h3 {
+  margin-bottom: 10px;
+}
+
+.right-sidebar label {
+  display: block;
+  margin-top: 10px;
+}
+
+.right-sidebar input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}

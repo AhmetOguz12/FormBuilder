@@ -1,7 +1,5 @@
 <div class="layout-container" cdkDropList #layoutDropList="cdkDropList" [cdkDropListConnectedTo]="['menuDropList']"
     [cdkDropListData]="formElements$ | async" (cdkDropListDropped)="drop($event)">
-    <!-- Layout and dropped items here -->
-
 
     <!-- Show a message if the layout is empty -->
     <div *ngIf="(formElements$ | async)?.length === 0" class="empty-layout">
@@ -35,8 +33,6 @@
             <app-text-area [label]="element.label"></app-text-area>
         </ng-container>
 
-        <!-- Add a remove button for each element -->
         <button class="ml-1 mr-1" pButton (click)="confirmRemoveItem(element, $event)">Remove</button>
-
     </div>
 </div>

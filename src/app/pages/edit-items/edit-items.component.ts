@@ -11,11 +11,11 @@ export class EditItemsComponent {
   selectedElement$: Observable<any>;
 
   constructor(private formService: FormService) {
-    this.selectedElement$ = this.formService.selectedElement$;
+    this.selectedElement$ = this.formService.selectedElement$; // Get the selected element to edit
   }
 
-  updateElement(updatedLabel: string, updatedValue: string) {
-    const updatedElement = { label: updatedLabel, value: updatedValue };
-    this.formService.updateElement(updatedElement); // Pass the updated element to the service
+  updateElement() {
+    // Call the update method in the service to apply changes to the selected element
+    this.formService.updateElement(this.selectedElement$);
   }
 }
