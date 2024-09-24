@@ -1,0 +1,11 @@
+<div *ngIf="selectedElement$ | async as selectedElement">
+    <h3>Edit {{ selectedElement.label }}</h3>
+
+    <label>Label</label>
+    <input [(ngModel)]="selectedElement.label" placeholder="Enter new label" />
+
+    <label>Value</label>
+    <input [(ngModel)]="selectedElement.value" placeholder="Enter new value" />
+
+    <button (click)="updateElement(selectedElement.label, selectedElement.value)">Update</button>
+</div>

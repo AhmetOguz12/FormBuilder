@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class FormService {
+  // BehaviorSubjects to track form elements and selected element
   private elementsSubject = new BehaviorSubject<any[]>([]);
   elements$ = this.elementsSubject.asObservable();
 
@@ -14,34 +15,42 @@ export class FormService {
   // Add a new element to the form layout
   addElement(element: any) {
     const currentElements = this.elementsSubject.getValue();
-    const newElement = { ...element };
+    const newElement = { ...element }; // Deep copy the element to avoid reference issues
     currentElements.push(newElement);
     this.elementsSubject.next(currentElements);
   }
 
-  // Select an element for editing
-  selectElement(element: any) {
-    this.selectedElementSubject.next(element);
+  // Update the list of elements after reordering or modifying
+  updateElementsAfterReordering(elements: any[]) {
+    this.elementsSubject.next(elements); // Directly update the elements
   }
 
-  // Update the selected element
-  updateElement() {
+  // Select an element for editing
+  selectElement(element: any) {
+    this.selectedElementSubject.next(element); // Notify subscribers about the selected element
+  }
+
+  // Update the selected element with new properties (e.g., new label, value)
+  updateElement(updatedElement: any) {
     const currentElements = this.elementsSubject.getValue();
     const selectedElement = this.selectedElementSubject.getValue();
-    const index = currentElements.findIndex((el) => el === selectedElement);
 
+    const index = currentElements.findIndex((el) => el === selectedElement);
     if (index !== -1) {
-      currentElements[index] = { ...selectedElement }; // Update the element
-      this.elementsSubject.next(currentElements); // Notify observers of changes
+      currentElements[index] = { ...currentElements[index], ...updatedElement };
+      this.elementsSubject.next(currentElements); // Notify subscribers about the updated elements
+      this.selectedElementSubject.next(currentElements[index]); // Update the selected element
     }
   }
 
-  // New method: Update elements after reordering
-  updateElementsAfterReordering(elements: any[]) {
-    this.elementsSubject.next(elements); // Directly update the elements with new order
+  // Remove an element from the layout
+  removeElement(element: any) {
+    const currentElements = this.elementsSubject.getValue();
+    const updatedElements = currentElements.filter((el) => el !== element);
+    this.elementsSubject.next(updatedElements); // Update the list after removal
   }
 
-  // Get access to the BehaviorSubject for external use
+  // Get access to the elements BehaviorSubject
   getElementsSubject() {
     return this.elementsSubject;
   }

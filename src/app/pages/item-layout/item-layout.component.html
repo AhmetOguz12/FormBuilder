@@ -1,0 +1,41 @@
+<div class="layout-container" cdkDropList #layoutDropList="cdkDropList" [cdkDropListData]="formElements$ | async"
+    (cdkDropListDropped)="drop($event)">
+
+    <!-- Display a message if the layout is empty -->
+    <div *ngIf="(formElements$ | async)?.length === 0" class="empty-layout">
+        Drag items here to build your form
+    </div>
+
+    <!-- Dynamically render the components based on item type -->
+    <ng-container *ngFor="let element of formElements$ | async">
+        <ng-container *ngIf="element.type === 'button'">
+            <app-button [label]="element.label"></app-button>
+        </ng-container>
+        <ng-container *ngIf="element.type === 'checkbox'">
+            <app-checkbox [label]="element.label"></app-checkbox>
+        </ng-container>
+        <ng-container *ngIf="element.type === 'date'">
+            <app-date [label]="element.label"></app-date>
+        </ng-container>
+        <ng-container *ngIf="element.type === 'dropdown'">
+            <app-dropdown [label]="element.label"></app-dropdown>
+        </ng-container>
+        <ng-container *ngIf="element.type === 'image'">
+            <app-image [imageUrl]="element.imageUrl" [altText]="element.altText"></app-image>
+        </ng-container>
+        <ng-container *ngIf="element.type === 'input'">
+            <app-input [label]="element.label"></app-input>
+        </ng-container>
+        <ng-container *ngIf="element.type === 'radio-button'">
+            <app-radio-button [label]="element.label"></app-radio-button>
+        </ng-container>
+        <ng-container *ngIf="element.type === 'text-area'">
+            <app-text-area [label]="element.label"></app-text-area>
+        </ng-container>
+
+        <!-- Add a remove button for each element -->
+        <button class="ml-1 mr-1" pButton (click)="confirmRemoveItem(element, $event)">Remove</button>
+    </ng-container>
+</div>
+
+<app-edit-items></app-edit-items>
