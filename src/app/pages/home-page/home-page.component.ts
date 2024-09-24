@@ -4,8 +4,8 @@ import {
   AfterViewInit,
   ChangeDetectorRef,
 } from '@angular/core';
-import { ItemLayoutComponent } from '../item-layout/item-layout.component';
 import { CdkDropList } from '@angular/cdk/drag-drop';
+import { ItemLayoutComponent } from '../item-layout/item-layout.component';
 
 @Component({
   selector: 'app-home-page',
@@ -19,12 +19,9 @@ export class HomePageComponent implements AfterViewInit {
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngAfterViewInit(): void {
-    // Initialize layoutDropList after view initialization
     if (this.itemLayoutComponent && this.itemLayoutComponent.dropList) {
       this.layoutDropList = this.itemLayoutComponent.dropList;
-
-      // Manually trigger change detection to avoid ExpressionChangedAfterItHasBeenCheckedError
-      this.cdr.detectChanges();
+      this.cdr.detectChanges(); // Manually trigger change detection
     }
   }
 }

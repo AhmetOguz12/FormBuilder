@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormService } from 'src/app/form.service';
+import { FormService } from 'src/app/services/form.service';
 import { Observable } from 'rxjs';
 
 @Component({

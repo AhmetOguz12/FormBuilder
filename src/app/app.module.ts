@@ -14,7 +14,6 @@ import { ImageModule } from 'primeng/image';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 
 import { AppComponent } from './app.component';
-import { ItemsComponent } from './pages/items/items.component';
 import { ItemLayoutComponent } from './pages/item-layout/item-layout.component';
 import { EditItemsComponent } from './pages/edit-items/edit-items.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
@@ -31,7 +30,6 @@ import { InputComponent } from './components/input/input.component';
   declarations: [
     AppComponent,
     DateComponent,
-    ItemsComponent,
     ItemLayoutComponent,
     EditItemsComponent,
     HomePageComponent,
