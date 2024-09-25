@@ -16,6 +16,10 @@
             <ng-container *ngIf="element.type === 'checkbox'">
                 <app-checkbox [label]="element.label"></app-checkbox>
             </ng-container>
+            <ng-container *ngIf="element.type === 'file-upload'">
+                <app-file-upload [label]="element.label" [multiple]="element.multiple || false"
+                    [accept]="element.accept || '*'" [maxFileSize]="element.maxFileSize || 1000000">></app-file-upload>
+            </ng-container>
             <ng-container *ngIf="element.type === 'date'">
                 <app-date [label]="element.label"></app-date>
             </ng-container>

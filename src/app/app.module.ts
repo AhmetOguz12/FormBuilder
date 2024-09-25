@@ -12,6 +12,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { ImageModule } from 'primeng/image';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { FileUploadModule } from 'primeng/fileupload';
 
 import { AppComponent } from './app.component';
 import { ItemLayoutComponent } from './pages/item-layout/item-layout.component';
@@ -25,6 +26,7 @@ import { DateComponent } from './components/date/date.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { ImageComponent } from './components/image/image.component';
 import { InputComponent } from './components/input/input.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { InputComponent } from './components/input/input.component';
     DropdownComponent,
     ImageComponent,
     InputComponent,
+    FileUploadComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +59,7 @@ import { InputComponent } from './components/input/input.component';
     InputTextareaModule,
     ImageModule,
     DropdownModule,
+    FileUploadModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

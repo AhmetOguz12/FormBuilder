@@ -62,6 +62,14 @@ export class AppMenuComponent implements OnInit {
       color: '#ffffff', // Varsayılan arka plan rengi
       icon: 'pi pi-pencil',
     },
+    {
+      type: 'file-upload',
+      label: 'Upload your files',
+      icon: 'pi pi-upload', // PrimeNG icon for file upload
+      multiple: true, // Allow multiple file uploads
+      accept: 'image/*', // Accept only image files
+      maxFileSize: 2000000, // Max file size is 2MB
+    },
   ];
 
   constructor(private dragDropService: DragDropService) {}

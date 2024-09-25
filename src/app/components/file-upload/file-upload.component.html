@@ -1,0 +1,17 @@
+<div>
+    <label>{{ label }}</label>
+    <p-fileUpload mode="advanced" name="file" url="./upload" [multiple]="multiple" [maxFileSize]="maxFileSize"
+        [accept]="accept" (onUpload)="onUpload($event)" [auto]="true">
+    </p-fileUpload>
+
+    <!-- Uploaded Files Preview -->
+    <div class="uploaded-files" *ngIf="uploadedFiles.length > 0">
+        <h4>Uploaded Files</h4>
+        <ul>
+            <li *ngFor="let file of uploadedFiles">
+                {{ file.name }} - {{ file.size }} bytes
+            </li>
+        </ul>
+        <button pButton label="Clear" icon="pi pi-times" (click)="clear()"></button>
+    </div>
+</div>
