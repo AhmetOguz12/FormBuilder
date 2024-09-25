@@ -36,8 +36,11 @@
                 </app-input>
             </ng-container>
             <ng-container *ngIf="element.type === 'radio-button'">
-                <app-radio-button [label]="element.label"></app-radio-button>
+                <app-radio-button [label]="element.label" [options]="element.options"
+                    [(ngModel)]="element.value"></app-radio-button>
             </ng-container>
+
+
             <ng-container *ngIf="element.type === 'text-area'">
                 <app-text-area [label]="element.label"></app-text-area>
             </ng-container>

@@ -67,6 +67,23 @@
                 <li *ngFor="let option of selectedElement.options">{{ option }}</li>
             </ul>
         </div>
+        <div *ngIf="selectedElement.type === 'radio-button'">
+            <label>Options:</label>
+            <div>
+                <input [(ngModel)]="newOption" placeholder="New Option" />
+                <button (click)="addOption(selectedElement)">Add</button>
+            </div>
+
+            <div>
+                <h4>Current Options:</h4>
+                <ul>
+                    <li *ngFor="let option of selectedElement.options">
+                        {{ option }}
+                        <button (click)="removeOption(selectedElement, option)">Remove</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
     </div>
     <button (click)="updateElement()">Save Changes</button>

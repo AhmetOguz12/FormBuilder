@@ -1,3 +1,12 @@
-<p-radioButton name="radioGroup" [value]="value" [label]="label" [(ngModel)]="value" inputId="inputId">
-</p-radioButton>
-<br>
+<div *ngIf="options && options.length > 0">
+    <label>{{ label }}</label>
+    <div *ngFor="let option of options">
+        <p-radioButton name="radioGroup" [value]="option" [(ngModel)]="value" inputId="{{ option }}"></p-radioButton>
+        <label for="{{ option }}">{{ option }}</label>
+    </div>
+</div>
+
+<!-- Eğer seçenek yoksa bir uyarı mesajı gösterelim -->
+<div *ngIf="!(options && options.length > 0)">
+    <p>No options available for this radio button.</p>
+</div>

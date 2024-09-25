@@ -9,29 +9,29 @@ import { Observable } from 'rxjs';
 })
 export class EditItemsComponent {
   selectedElement$: Observable<any>;
-  newOption: string = ''; // Yeni seçenek için değişken
+  newOption: string = ''; // Yeni radiobutton seçeneği
 
   constructor(private formService: FormService) {
-    this.selectedElement$ = this.formService.selectedElement$; // Get the selected element to edit
+    this.selectedElement$ = this.formService.selectedElement$;
   }
 
   updateElement() {
     this.formService.updateElement(this.selectedElement$);
   }
 
-  updateOptions(selectedElement: any) {
-    if (selectedElement.options) {
-      selectedElement.options = selectedElement.options
-        .split(',')
-        .map((option: string) => option.trim());
+  addOption(selectedElement: any) {
+    if (this.newOption.trim()) {
+      if (!selectedElement.options) {
+        selectedElement.options = [];
+      }
+      selectedElement.options.push(this.newOption.trim());
+      this.newOption = '';
     }
   }
 
-  addOption(selectedElement: any) {
-    if (this.newOption.trim()) {
-      // Eğer yeni metin boş değilse, mevcut seçeneklere ekle
-      selectedElement.options.push(this.newOption.trim());
-      this.newOption = ''; // Girdi alanını temizle
-    }
+  removeOption(selectedElement: any, option: string) {
+    selectedElement.options = selectedElement.options.filter(
+      (opt: string) => opt !== option
+    );
   }
 }
