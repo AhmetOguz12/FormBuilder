@@ -50,34 +50,18 @@ export class AppMenuComponent implements OnInit {
       imageUrl: 'https://via.placeholder.com/150', // Image-specific attribute
     },
     {
-      type: 'input',
-      label: 'Input',
-      inputType: 'text', // Varsayılan input tipi
-      placeholder: 'Enter text here', // Varsayılan placeholder
-      color: '#ffffff', // Varsayılan arka plan rengi
-    },
-    {
       type: 'text-area',
       label: 'Text Area',
       icon: 'pi pi-align-left', // PrimeNG icon for text areas
     },
-    // { type: 'checkbox', label: 'Checkbox' },
-    { type: 'date', label: 'Date Picker' },
-    {
-      type: 'dropdown',
-      label: 'Dropdown',
-      options: [], // Başlangıçta boş bir dizi
-    },
-    { type: 'image', label: 'Image' },
     {
       type: 'input',
       label: 'Input',
       inputType: 'text', // Varsayılan input tipi
       placeholder: 'Enter text here', // Varsayılan placeholder
       color: '#ffffff', // Varsayılan arka plan rengi
+      icon: 'pi pi-pencil',
     },
-    { type: 'radio-button', label: 'Radio Button' },
-    { type: 'text-area', label: 'Text Area' },
   ];
 
   constructor(private dragDropService: DragDropService) {}
