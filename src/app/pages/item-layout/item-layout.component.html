@@ -1,16 +1,18 @@
 <div class="layout-container" cdkDropList #layoutDropList="cdkDropList" [cdkDropListConnectedTo]="['menuDropList']"
     [cdkDropListData]="formElements$ | async" (cdkDropListDropped)="drop($event)">
 
-    <!-- Show a message if the layout is empty -->
     <div *ngIf="(formElements$ | async)?.length === 0" class="empty-layout">
         Drag items here to build your form
     </div>
 
-    <!-- Dynamically render the components based on item type -->
     <div *ngFor="let element of formElements$ | async" (click)="editElement(element)" cdkDrag>
         <ng-container *ngIf="element.type === 'button'">
-            <app-button [label]="element.label"></app-button>
+            <app-button [label]="element.label" [buttonColor]="element.buttonColor" [textColor]="element.textColor"
+                [borderStyle]="element.borderStyle" [width]="element.width" [height]="element.height">
+            </app-button>
         </ng-container>
+
+
         <ng-container *ngIf="element.type === 'checkbox'">
             <app-checkbox [label]="element.label"></app-checkbox>
         </ng-container>

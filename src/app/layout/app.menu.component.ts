@@ -10,7 +10,17 @@ export class AppMenuComponent implements OnInit {
   @Input() connectedDropList!: CdkDropList;
 
   availableElements = [
-    { type: 'button', label: 'Button' },
+    {
+      type: 'button',
+      label: 'Submit',
+      buttonColor: '#007bff',
+      textColor: '#ffffff',
+      borderStyle: '2px solid #000',
+      width: '150px',
+      height: '50px',
+    },
+    // Diğer elemanlar...
+
     { type: 'checkbox', label: 'Checkbox' },
     { type: 'date', label: 'Date Picker' },
     { type: 'dropdown', label: 'Dropdown' },
@@ -23,7 +33,6 @@ export class AppMenuComponent implements OnInit {
   constructor(private dragDropService: DragDropService) {}
 
   ngOnInit() {
-    // Get the connected drop list from the shared service
     this.connectedDropList = this.dragDropService.getLayoutDropList();
   }
 }

@@ -1,17 +1,46 @@
 <div *ngIf="selectedElement$ | async as selectedElement">
     <h3>Edit {{ selectedElement.label }}</h3>
 
-    <div>
+    <!-- <div>
         <label>Label:</label>
         <input [(ngModel)]="selectedElement.label" placeholder="Label" />
-    </div>
+    </div> -->
 
     <div *ngIf="selectedElement.type === 'input'">
         <label>Placeholder:</label>
         <input [(ngModel)]="selectedElement.placeholder" placeholder="Placeholder" />
     </div>
 
-    <!-- Add more editable properties depending on the component type -->
+
+
+
+    <div *ngIf="selectedElement.type === 'button'">
+        <label>Button Text:</label>
+        <input [(ngModel)]="selectedElement.label" placeholder="Button Text" />
+
+        <label>Button Color:</label>
+        <input [(ngModel)]="selectedElement.buttonColor" type="color" />
+
+        <label>Text Color:</label>
+        <input [(ngModel)]="selectedElement.textColor" type="color" />
+
+        <!-- Yeni eklenen alanlar -->
+        <label>Border Style:</label>
+        <input [(ngModel)]="selectedElement.borderStyle" placeholder="Border (e.g., '2px solid #000')" />
+
+        <label>Width:</label>
+        <input [(ngModel)]="selectedElement.width" placeholder="Width (e.g., '150px')" />
+
+        <label>Height:</label>
+        <input [(ngModel)]="selectedElement.height" placeholder="Height (e.g., '50px')" />
+    </div>
+
+
+
+    <div *ngIf="selectedElement.type === 'radio-button'">
+        <label>Options:</label>
+        <input [(ngModel)]="selectedElement.options" placeholder="Options (comma separated)" />
+    </div>
 
     <button (click)="updateElement()">Save Changes</button>
 </div>
