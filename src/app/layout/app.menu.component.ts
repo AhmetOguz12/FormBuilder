@@ -38,9 +38,9 @@ export class AppMenuComponent implements OnInit {
       options: [], // Dropdown-specific attributes
     },
     {
-      icon: 'pi pi-circle-on', // PrimeNG icon for radio buttons
       type: 'radio-button',
       label: 'Radio Button',
+      icon: 'pi pi-circle-on', // PrimeNG icon for radio buttons
       options: [], // Başlangıçta boş bir dizi
       value: '', // Seçilen değer başlangıçta boş
     },

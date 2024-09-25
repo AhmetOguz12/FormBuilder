@@ -3,8 +3,8 @@ import {
   CdkDragDrop,
   moveItemInArray,
   transferArrayItem,
+  CdkDropList,
 } from '@angular/cdk/drag-drop';
-import { CdkDropList } from '@angular/cdk/drag-drop';
 import { FormService } from 'src/app/services/form.service';
 import { DragDropService } from 'src/app/services/drag-drop.service';
 
@@ -46,6 +46,8 @@ export class ItemLayoutComponent implements AfterViewInit {
     const updatedElements = currentElements.filter((el) => el !== element);
     this.formService.updateElementsAfterReordering(updatedElements);
   }
+
+  isHover: boolean = false;
 
   drop(event: any) {
     this.formService.addElement(event.item.data);

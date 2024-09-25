@@ -17,3 +17,28 @@
   margin-bottom: 10px;
   cursor: move;
 }
+.item {
+  position: relative; /* Buton konumlandırması için */
+  display: inline-block; /* İtem'i yan yana göstermek için */
+}
+
+.delete-button {
+  position: absolute; /* Butonu item'ın üzerine yerleştirir */
+  bottom: -20px; /* İtem'ın altında görünmesi için konum ayarı */
+  right: -30px; /* Sağ alt köşeye yerleştirir */
+  background-color: red; /* Kırmızı arka plan rengi */
+  color: white; /* Beyaz ikon rengi */
+  border: none; /* Kenarlıkları kaldır */
+  border-radius: 50%; /* Yuvarlak buton */
+  width: 30px; /* Buton genişliği */
+  height: 30px; /* Buton yüksekliği */
+  padding: 0; /* İçerik boşluğu kaldır */
+  display: flex; /* Flex kullanarak ortalayıp merkezi hale getir */
+  justify-content: center; /* Yatay ortala */
+  align-items: center; /* Dikey ortala */
+  margin-left: 20px;
+}
+
+.delete-button .pi {
+  font-size: 16px; /* İkon boyutu */
+}

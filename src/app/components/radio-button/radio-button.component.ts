@@ -7,6 +7,10 @@ import { Component, Input } from '@angular/core';
 })
 export class RadioButtonComponent {
   @Input() label!: string;
-  @Input() options!: string[]; // Çoklu seçenekler için değişken
-  @Input() value!: string; // Seçilen değer
+  @Input() options: string[] = ['Option 1', 'Option 2', 'Option 3']; // Varsayılan seçenekler
+  @Input() value: string = ''; // Seçilen değer başlangıçta boş olabilir
+
+  constructor() {
+    console.log('Options: ', this.options); // Seçeneklerin doğru yüklendiğini görmek için
+  }
 }

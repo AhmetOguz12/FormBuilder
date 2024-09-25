@@ -45,7 +45,15 @@
                 <app-text-area [label]="element.label"></app-text-area>
             </ng-container>
 
-            <button class="ml-1 mr-1" pButton (click)="confirmRemoveItem(element, $event)">Remove</button>
+            <div class="item">
+
+
+                <button class="delete-button" pButton icon="pi pi-trash" (click)="confirmRemoveItem(element, $event)">
+                </button>
+            </div>
+
+
+
         </div>
     </div>
 </div>
