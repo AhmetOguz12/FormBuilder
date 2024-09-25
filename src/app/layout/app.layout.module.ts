@@ -18,6 +18,10 @@ import { AppConfigModule } from './config/config.module';
 import { AppSidebarComponent } from './app.sidebar.component';
 import { AppLayoutComponent } from './app.layout.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { CheckboxModule } from 'primeng/checkbox';
+import { CalendarModule } from 'primeng/calendar';
+import { DropdownModule } from 'primeng/dropdown';
+import { CardModule } from 'primeng/card';
 
 @NgModule({
   declarations: [
@@ -42,6 +46,10 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     RouterModule,
     AppConfigModule,
     DragDropModule,
+    CheckboxModule,
+    CalendarModule,
+    DropdownModule,
+    CardModule,
   ],
   exports: [AppLayoutComponent, AppMenuComponent],
 })

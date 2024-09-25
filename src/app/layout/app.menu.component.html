@@ -1,5 +1,23 @@
-<div cdkDropList [cdkDropListConnectedTo]="[connectedDropList]" [cdkDropListData]="availableElements">
+<!-- <div cdkDropList [cdkDropListConnectedTo]="[connectedDropList]" [cdkDropListData]="availableElements">
     <div *ngFor="let element of availableElements" cdkDrag [cdkDragData]="element">
         {{ element.label }} - {{ element.type }}
+    </div>
+</div> -->
+
+
+<div cdkDropList [cdkDropListConnectedTo]="[connectedDropList]" [cdkDropListData]="availableElements">
+    <!-- Loop over the elements and display them inside a card -->
+    <div *ngFor="let element of availableElements" cdkDrag [cdkDragData]="element" class="menu-item">
+        <!-- PrimeNG Card for each element -->
+        <p-card styleClass="menu-card">
+            <ng-template pTemplate="header">
+                <!-- Icon inside the card header -->
+                <i [class]="element.icon" class="pi-icon" style="font-size: 2em;"></i>
+            </ng-template>
+            <ng-template pTemplate="content">
+                <!-- Label inside the card -->
+                <span>{{ element.label }}</span>
+            </ng-template>
+        </p-card>
     </div>
 </div>

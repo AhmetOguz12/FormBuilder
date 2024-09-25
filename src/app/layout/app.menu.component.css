@@ -1,0 +1,21 @@
+.menu-item {
+  margin-bottom: 10px;
+}
+
+.menu-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: move; /* Show drag cursor */
+  padding: 10px;
+}
+
+.pi-icon {
+  margin-bottom: 10px;
+}
+
+.p-card {
+  box-shadow: none;
+  border: 1px solid #ccc;
+}
