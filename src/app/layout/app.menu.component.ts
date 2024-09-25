@@ -35,13 +35,13 @@ export class AppMenuComponent implements OnInit {
       type: 'dropdown',
       label: 'Dropdown',
       icon: 'pi pi-list', // PrimeNG icon for dropdowns
-      options: ['Option 1', 'Option 2', 'Option 3'], // Dropdown-specific attributes
+      options: [], // Dropdown-specific attributes
     },
     {
       type: 'radio-button',
       label: 'Radio Button',
       icon: 'pi pi-circle-on', // PrimeNG icon for radio buttons
-      options: ['Option 1', 'Option 2'], // Radio-button-specific attributes
+      options: [], // Radio-button-specific attributes
     },
     {
       type: 'image',
@@ -52,13 +52,32 @@ export class AppMenuComponent implements OnInit {
     {
       type: 'input',
       label: 'Input',
-      icon: 'pi pi-pencil', // PrimeNG icon for input fields
+      inputType: 'text', // Varsayılan input tipi
+      placeholder: 'Enter text here', // Varsayılan placeholder
+      color: '#ffffff', // Varsayılan arka plan rengi
     },
     {
       type: 'text-area',
       label: 'Text Area',
       icon: 'pi pi-align-left', // PrimeNG icon for text areas
     },
+    // { type: 'checkbox', label: 'Checkbox' },
+    { type: 'date', label: 'Date Picker' },
+    {
+      type: 'dropdown',
+      label: 'Dropdown',
+      options: [], // Başlangıçta boş bir dizi
+    },
+    { type: 'image', label: 'Image' },
+    {
+      type: 'input',
+      label: 'Input',
+      inputType: 'text', // Varsayılan input tipi
+      placeholder: 'Enter text here', // Varsayılan placeholder
+      color: '#ffffff', // Varsayılan arka plan rengi
+    },
+    { type: 'radio-button', label: 'Radio Button' },
+    { type: 'text-area', label: 'Text Area' },
   ];
 
   constructor(private dragDropService: DragDropService) {}

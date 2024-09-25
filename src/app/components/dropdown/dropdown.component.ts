@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class DropdownComponent {
   @Input() label!: string;
-  @Input() options!: any[];
+  @Input() options!: any[]; // Seçenekler için dizi
   @Input() value!: string;
 }

@@ -9,13 +9,29 @@ import { Observable } from 'rxjs';
 })
 export class EditItemsComponent {
   selectedElement$: Observable<any>;
+  newOption: string = ''; // Yeni seçenek için değişken
 
   constructor(private formService: FormService) {
     this.selectedElement$ = this.formService.selectedElement$; // Get the selected element to edit
   }
 
   updateElement() {
-    // Call the update method in the service to apply changes to the selected element
     this.formService.updateElement(this.selectedElement$);
+  }
+
+  updateOptions(selectedElement: any) {
+    if (selectedElement.options) {
+      selectedElement.options = selectedElement.options
+        .split(',')
+        .map((option: string) => option.trim());
+    }
+  }
+
+  addOption(selectedElement: any) {
+    if (this.newOption.trim()) {
+      // Eğer yeni metin boş değilse, mevcut seçeneklere ekle
+      selectedElement.options.push(this.newOption.trim());
+      this.newOption = ''; // Girdi alanını temizle
+    }
   }
 }

@@ -1,2 +1,4 @@
-<label>{{ label }}</label>
-<input pInputText [(ngModel)]="value" /><br>
+<div [ngStyle]="{ 'color': color }">
+    <label>{{ label }}</label>
+    <input [type]="inputType" pInputText [(ngModel)]="value" [placeholder]="placeholder" />
+</div>

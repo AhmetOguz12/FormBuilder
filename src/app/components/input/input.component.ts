@@ -8,4 +8,7 @@ import { Component, Input } from '@angular/core';
 export class InputComponent {
   @Input() label!: string;
   @Input() value!: string;
+  @Input() placeholder!: string;
+  @Input() color!: string;
+  @Input() inputType!: string;
 }

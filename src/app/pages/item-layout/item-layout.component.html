@@ -20,13 +20,16 @@
                 <app-date [label]="element.label"></app-date>
             </ng-container>
             <ng-container *ngIf="element.type === 'dropdown'">
-                <app-dropdown [label]="element.label"></app-dropdown>
+                <app-dropdown [label]="element.label" [options]="element.options" [(ngModel)]="element.value">
+                </app-dropdown>
             </ng-container>
             <ng-container *ngIf="element.type === 'image'">
                 <app-image [imageUrl]="element.imageUrl" [altText]="element.altText"></app-image>
             </ng-container>
             <ng-container *ngIf="element.type === 'input'">
-                <app-input [label]="element.label"></app-input>
+                <app-input [label]="element.label" [value]="element.value" [placeholder]="element.placeholder"
+                    [color]="element.Color" [inputType]="element.inputType">
+                </app-input>
             </ng-container>
             <ng-container *ngIf="element.type === 'radio-button'">
                 <app-radio-button [label]="element.label"></app-radio-button>

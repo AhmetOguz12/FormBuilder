@@ -1,12 +1,24 @@
 <div *ngIf="selectedElement$ | async as selectedElement">
     <h3>Edit {{ selectedElement.label }}</h3>
 
-    <!-- <div>
+    <div>
         <label>Label:</label>
+
         <input [(ngModel)]="selectedElement.label" placeholder="Label" />
-    </div> -->
+    </div>
+    <br>
 
     <div *ngIf="selectedElement.type === 'input'">
+        <label>Input Type:</label>
+        <select [(ngModel)]="selectedElement.inputType">
+            <option value="text">Text</option>
+            <option value="number">Number</option>
+            <option value="email">Email</option>
+            <option value="password">Password</option>
+            <option value="tel">Telephone</option>
+            <option value="url">URL</option>
+        </select>
+
         <label>Placeholder:</label>
         <input [(ngModel)]="selectedElement.placeholder" placeholder="Placeholder" />
     </div>
@@ -42,5 +54,19 @@
         <input [(ngModel)]="selectedElement.options" placeholder="Options (comma separated)" />
     </div>
 
+    <div *ngIf="selectedElement.type === 'dropdown'">
+        <div>
+            <label>Add Option:</label>
+            <input [(ngModel)]="newOption" placeholder="New Option" />
+            <button (click)="addOption(selectedElement)">Add</button>
+        </div>
+
+        <div>
+            <h4>Current Options:</h4>
+            <ul>
+                <li *ngFor="let option of selectedElement.options">{{ option }}</li>
+            </ul>
+        </div>
+
+    </div>
     <button (click)="updateElement()">Save Changes</button>
-</div>
