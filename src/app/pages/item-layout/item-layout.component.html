@@ -1,5 +1,5 @@
 <div class="layout-container" cdkDropList #layoutDropList="cdkDropList" [cdkDropListConnectedTo]="['menuDropList']"
-    [cdkDropListData]="formElements$ | async" (cdkDropListDropped)="drop($event)">
+    [cdkDropListData]="formElements$ | async" (cdkDropListDropped)="drop($event) ">
 
     <div *ngIf="(formElements$ | async)?.length === 0" class="empty-layout">
         Drag items here to build your form

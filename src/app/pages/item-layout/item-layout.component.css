@@ -24,7 +24,7 @@
 
 .delete-button {
   position: absolute; /* Butonu item'ın üzerine yerleştirir */
-  bottom: -20px; /* İtem'ın altında görünmesi için konum ayarı */
+  bottom: -8px; /* İtem'ın altında görünmesi için konum ayarı */
   right: -30px; /* Sağ alt köşeye yerleştirir */
   background-color: red; /* Kırmızı arka plan rengi */
   color: white; /* Beyaz ikon rengi */
