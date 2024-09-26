@@ -1,12 +1,13 @@
-<div *ngIf="selectedElement$ | async as selectedElement">
+<div *ngIf="selectedElement$ | async as selectedElement"
+    style="padding-left: 15px;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
     <h3>Edit {{ selectedElement.label }}</h3>
 
-    <div>
+    <!-- <div>
         <label>Label:</label>
 
         <input [(ngModel)]="selectedElement.label" placeholder="Label" />
     </div>
-    <br>
+    <br> -->
 
     <div *ngIf="selectedElement.type === 'input'">
         <label>Input Type:</label>
@@ -26,26 +27,47 @@
 
 
 
-    <div *ngIf="selectedElement.type === 'button'">
-        <label>Button Text:</label>
-        <input [(ngModel)]="selectedElement.label" placeholder="Button Text" />
+    <div *ngIf="(selectedElement$ | async) as selectedElement">
+        <div *ngIf="selectedElement.type === 'button'">
+            <label>Button Text:</label>
+            <input [(ngModel)]="selectedElement.label" placeholder="Button Text" />
+            <br />
 
-        <label>Button Color:</label>
-        <input [(ngModel)]="selectedElement.buttonColor" type="color" />
+            <label>Button Color:</label>
+            <input style="margin-left: 40px; margin-top: 5px" [(ngModel)]="selectedElement.buttonColor" type="color" />
+            <br />
 
-        <label>Text Color:</label>
-        <input [(ngModel)]="selectedElement.textColor" type="color" />
+            <label>Text Color:</label>
+            <input style="margin-left: 58px; margin-top: 5px" [(ngModel)]="selectedElement.textColor" type="color" />
 
-        <!-- Yeni eklenen alanlar -->
-        <label>Border Style:</label>
-        <input [(ngModel)]="selectedElement.borderStyle" placeholder="Border (e.g., '2px solid #000')" />
 
-        <label>Width:</label>
-        <input [(ngModel)]="selectedElement.width" placeholder="Width (e.g., '150px')" />
 
-        <label>Height:</label>
-        <input [(ngModel)]="selectedElement.height" placeholder="Height (e.g., '50px')" />
+            <label style="margin-top: 5px;">Border Thickness:</label>
+            <input style="margin-top: 5px" [(ngModel)]="selectedElement.borderThickness"
+                placeholder="Border Thickness (e.g., '10')" (blur)="addPxToBorderThickness(selectedElement)" />
+            <br />
+
+            <label>Border Color:</label>
+            <input style="margin-left: 40px; margin-top: 5px" [(ngModel)]="selectedElement.borderColor" type="color" />
+            <br />
+
+            <!-- Diğer alanlar -->
+            <label>Width:</label>
+            <input [(ngModel)]="selectedElement.width" placeholder="Width (e.g., '150px')"
+                (blur)="addPxToWidth(selectedElement)" />
+            <br />
+
+            <label>Height:</label>
+            <input [(ngModel)]="selectedElement.height" placeholder="Height (e.g., '50px')"
+                (blur)="addPxToHeight(selectedElement)" />
+            <br />
+
+            <!-- Güncellenmiş elementi kaydetme butonu -->
+            <!-- <button (click)="updateElement()">Update Element</button> -->
+        </div>
     </div>
+
+
 
 
 
@@ -67,6 +89,9 @@
                 <li *ngFor="let option of selectedElement.options">{{ option }}</li>
             </ul>
         </div>
+
+
+
         <div *ngIf="selectedElement.type === 'radio-button'">
             <label>Options:</label>
             <div>
@@ -87,4 +112,4 @@
 
 
     </div>
-    <button (click)="updateElement()">Save Changes</button>
+    <!-- <button (click)="updateElement()">Save Changes</button> -->

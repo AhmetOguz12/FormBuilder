@@ -8,51 +8,54 @@
         <div *ngFor="let element of formElements$ | async" (click)="editElement(element)" cdkDrag>
             <ng-container *ngIf="element.type === 'button'">
                 <app-button [label]="element.label" [buttonColor]="element.buttonColor" [textColor]="element.textColor"
-                    [borderStyle]="element.borderStyle" [width]="element.width" [height]="element.height">
+                    [borderThickness]="element.borderThickness" [borderColor]="element.borderColor"
+                    [width]="element.width" [height]="element.height">
                 </app-button>
             </ng-container>
-
 
             <ng-container *ngIf="element.type === 'checkbox'">
                 <app-checkbox [label]="element.label"></app-checkbox>
             </ng-container>
+
             <ng-container *ngIf="element.type === 'file-upload'">
                 <app-file-upload [label]="element.label" [multiple]="element.multiple || false"
-                    [accept]="element.accept || '*'" [maxFileSize]="element.maxFileSize || 1000000">></app-file-upload>
+                    [accept]="element.accept || '*'" [maxFileSize]="element.maxFileSize || 1000000">
+                </app-file-upload>
             </ng-container>
+
             <ng-container *ngIf="element.type === 'date'">
                 <app-date [label]="element.label"></app-date>
             </ng-container>
+
             <ng-container *ngIf="element.type === 'dropdown'">
                 <app-dropdown [label]="element.label" [options]="element.options" [(ngModel)]="element.value">
                 </app-dropdown>
             </ng-container>
+
             <ng-container *ngIf="element.type === 'image'">
-                <app-image [imageUrl]="element.imageUrl" [altText]="element.altText"></app-image>
-            </ng-container>
-            <ng-container *ngIf="element.type === 'input'">
-                <app-input [label]="element.label" [value]="element.value" [placeholder]="element.placeholder"
-                    [color]="element.Color" [inputType]="element.inputType">
-                </app-input>
-            </ng-container>
-            <ng-container *ngIf="element.type === 'radio-button'">
-                <app-radio-button [label]="element.label" [options]="element.options"
-                    [(ngModel)]="element.value"></app-radio-button>
+                <app-image [imageUrl]="element.imageUrl" [altText]="element.altText">
+                </app-image>
             </ng-container>
 
+            <ng-container *ngIf="element.type === 'input'">
+                <app-input [label]="element.label" [value]="element.value" [placeholder]="element.placeholder"
+                    [color]="element.color" [inputType]="element.inputType">
+                </app-input>
+            </ng-container>
+
+            <ng-container *ngIf="element.type === 'radio-button'">
+                <app-radio-button [label]="element.label" [options]="element.options" [(ngModel)]="element.value">
+                </app-radio-button>
+            </ng-container>
 
             <ng-container *ngIf="element.type === 'text-area'">
                 <app-text-area [label]="element.label"></app-text-area>
             </ng-container>
 
             <div class="item">
-
-
                 <button class="delete-button" pButton icon="pi pi-trash" (click)="confirmRemoveItem(element, $event)">
                 </button>
             </div>
-
-
 
         </div>
     </div>

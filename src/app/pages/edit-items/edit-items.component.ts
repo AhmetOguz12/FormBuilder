@@ -16,7 +16,9 @@ export class EditItemsComponent {
   }
 
   updateElement() {
-    this.formService.updateElement(this.selectedElement$);
+    this.selectedElement$.subscribe((element) => {
+      this.formService.updateElement(element);
+    });
   }
 
   addOption(selectedElement: any) {
@@ -33,5 +35,34 @@ export class EditItemsComponent {
     selectedElement.options = selectedElement.options.filter(
       (opt: string) => opt !== option
     );
+  }
+
+  // px birimini kenar kalınlığına eklemek için fonksiyon
+  addPxToBorderThickness(selectedElement: any): void {
+    if (
+      selectedElement.borderThickness &&
+      !selectedElement.borderThickness.toString().endsWith('px')
+    ) {
+      selectedElement.borderThickness += 'px';
+    }
+  }
+
+  // px birimini genişlik ve yüksekliğe eklemek için fonksiyonlar
+  addPxToWidth(selectedElement: any): void {
+    if (
+      selectedElement.width &&
+      !selectedElement.width.toString().endsWith('px')
+    ) {
+      selectedElement.width += 'px';
+    }
+  }
+
+  addPxToHeight(selectedElement: any): void {
+    if (
+      selectedElement.height &&
+      !selectedElement.height.toString().endsWith('px')
+    ) {
+      selectedElement.height += 'px';
+    }
   }
 }
